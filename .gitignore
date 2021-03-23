@@ -1,0 +1,5 @@
+﻿GhanaCustomsSystem.Domain/bin
+GhanaCustomsSystem.Domain/obj
+*.user
+GhanaCustomsSystem.Shared/bin
+GhanaCustomsSystem.Shared/obj

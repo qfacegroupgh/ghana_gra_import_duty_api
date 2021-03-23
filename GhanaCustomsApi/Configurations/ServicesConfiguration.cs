@@ -1,9 +1,21 @@
+﻿using GhanaCustomsSystem.DataEFCore;
+using GhanaCustomsSystem.Domain;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
+namespace GhanaCustomsApi.Configurations
+{
+    public static class ServicesConfiguration
+    {
         public static IServiceCollection ConfigureRepositories(this IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }
+
+       
+
         public static IServiceCollection AddMiddleware(this IServiceCollection services)
         {
             services.AddControllersWithViews()
@@ -14,6 +26,7 @@
 
             return services;
         }
+
         public static IServiceCollection AddLogging(this IServiceCollection services)
         {
             services.AddLogging(builder => builder
@@ -23,6 +36,7 @@
 
             return services;
         }
+        
         public static IServiceCollection AddCaching(this IServiceCollection services)
         {
             services.AddMemoryCache();            
@@ -30,6 +44,7 @@
 
             return services;
         }
+        
         public static IServiceCollection AddCORS(this IServiceCollection services)
         {
             services.AddCors(options =>
@@ -43,3 +58,7 @@
 
             return services;
         }
+        
+        
+    }
+}

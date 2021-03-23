@@ -7,3 +7,9 @@ GhanaCustomsSystem.DataEFCore/bin
 GhanaCustomsSystem.DataEFCore/obj
 GhanaCustomsSystem.MockData/bin
 GhanaCustomsSystem.MockData/obj
+GhanaCustomsSystem.UnitTest/bin
+GhanaCustomsSystem.UnitTest/obj
+GhanaCustomsApi/bin
+GhanaCustomsApi/obj
+GhanaCustomsSystem.IntegrationTest/bin
+GhanaCustomsSystem.IntegrationTest/obj

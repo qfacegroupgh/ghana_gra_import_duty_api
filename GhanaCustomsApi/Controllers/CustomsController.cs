@@ -1,3 +1,29 @@
+﻿using GhanaCustomsSystem.Domain;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using GhanaCustomsSystem.Domain.ViewModels;
+
+namespace GhanaCustomsApi.Controllers
+{
+    
+    [ApiController]
+    [Route("[controller]")]
+    public class CustomsController : ControllerBase
+    {
+
+        private readonly ILogger<CustomsController> _logger;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public CustomsController(ILogger<CustomsController> logger,
+            IUnitOfWork unitOfWork)
+        {
+            _logger = logger;
+            _unitOfWork = unitOfWork;
+        }
+
         [HttpGet]
         [Route("Gets")]
         public async Task<IActionResult> Gets()
@@ -5,6 +31,8 @@
             var data =await _unitOfWork.VehicleTypes.GetVehicleTypes();
             return Ok(data);
         }
+       
+    
         [HttpGet]
         [Route("import-duty")]
         public async Task<IActionResult> GetById(int id,decimal assetValue)
@@ -47,3 +75,8 @@
 
             return Ok(result);
         }
+
+       
+
+    }
+}

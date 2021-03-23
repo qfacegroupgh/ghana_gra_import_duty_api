@@ -14,3 +14,12 @@
 
             return services;
         }
+        public static IServiceCollection AddLogging(this IServiceCollection services)
+        {
+            services.AddLogging(builder => builder
+                .AddConsole()
+                .AddFilter(level => level >= LogLevel.Information)
+            );
+
+            return services;
+        }

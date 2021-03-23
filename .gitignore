@@ -3,3 +3,5 @@ GhanaCustomsSystem.Domain/obj
 *.user
 GhanaCustomsSystem.Shared/bin
 GhanaCustomsSystem.Shared/obj
+GhanaCustomsSystem.DataEFCore/bin
+GhanaCustomsSystem.DataEFCore/obj

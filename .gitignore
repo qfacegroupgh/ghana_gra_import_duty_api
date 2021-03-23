@@ -5,3 +5,5 @@ GhanaCustomsSystem.Shared/bin
 GhanaCustomsSystem.Shared/obj
 GhanaCustomsSystem.DataEFCore/bin
 GhanaCustomsSystem.DataEFCore/obj
+GhanaCustomsSystem.MockData/bin
+GhanaCustomsSystem.MockData/obj

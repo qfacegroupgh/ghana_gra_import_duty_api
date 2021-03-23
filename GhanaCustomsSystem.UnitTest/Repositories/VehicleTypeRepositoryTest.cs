@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using GhanaCustomsSystem.Domain.Models;
 using GhanaCustomsSystem.MockData.Repositories;
@@ -17,42 +18,37 @@ namespace GhanaCustomsSystem.UnitTest.Repositories
         }
         [DotMemoryUnit(FailIfRunWithoutSupport = false)]
         [Fact]
-        public async Task VehicleTypeGetAllAsync()
-        {
-            // Act
-            var albums = await _repo.GetAllAsync();
-
-            // Assert
-            Assert.Single(albums);
-        }
-
-        [DotMemoryUnit(FailIfRunWithoutSupport = false)]
-        [Fact]
         public async Task VehicleTypeGetOneAsync()
         {
             // Arrange
             var id = 1;
 
             // Act
-            var album = await _repo.GetAsync(id);
+            var vehicleType = await _repo.GetAsync(id);
 
             // Assert
-            Assert.Equal(id, album.VehicleTypeId);
+            Assert.Equal(id, vehicleType.VehicleTypeId);
         }
 
-        [AssertTraffic(AllocatedSizeInBytes = 1000, Types = new[] { typeof(VehicleType) })]
+
+
+        [DotMemoryUnit(FailIfRunWithoutSupport = false)]
         [Fact]
-        public async Task DotMemoryUnitTest()
+        public async Task VehicleTypeGetAllAsync()
         {
-            var repo = new VehicleTypeRepository();
+            // Arrange
 
-            await repo.GetAllAsync();
+            // Act
+            var vehicleTypes = await _repo.GetAllAsync();
 
-            dotMemory.Check(memory =>
-                Assert.Equal(1, memory
-                    .GetObjects(where => where.Type.Is<VehicleType>()).ObjectsCount));
-
-            GC.KeepAlive(repo); // prevent objects from GC if this is implied by test logic
+            // Assert
+            Assert.True(vehicleTypes.Any());
         }
+
+    
+
+
+       
+
     }
 }

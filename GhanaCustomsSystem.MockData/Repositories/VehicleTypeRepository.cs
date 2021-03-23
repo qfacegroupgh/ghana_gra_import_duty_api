@@ -16,7 +16,7 @@ namespace GhanaCustomsSystem.MockData.Repositories
         public Task<VehicleType> GetAsync(int id)
         {
             return GetMockData()
-                .First()
+                .First(a=>a.VehicleTypeId==id)
                 .AsTask();
         }
 
@@ -40,7 +40,8 @@ namespace GhanaCustomsSystem.MockData.Repositories
 
         public Task<IEnumerable<VehicleType>> GetAllAsync()
         {
-            return GetMockData().AsTask();
+            var allAsync = GetMockData().AsTask();
+            return allAsync;
         }
 
         public Task<List<VehicleType>> FindAsync(Expression<Func<VehicleType, bool>> predicate)
@@ -81,6 +82,21 @@ namespace GhanaCustomsSystem.MockData.Repositories
         public Task RemoveWithCommitAsync(VehicleType entity)
         {
             return Task.FromResult(true);
+        }
+
+        public void InitData()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<VehicleType> GetVehicleType(int vehicleTypeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<VehicleType>> GetVehicleTypes()
+        {
+            throw new NotImplementedException();
         }
     }
 }

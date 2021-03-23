@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GhanaCustomsSystem.Domain.ViewModels;
-
+using static Microsoft.AspNetCore.Http.StatusCodes;
 namespace GhanaCustomsApi.Controllers
 {
     
@@ -31,13 +31,14 @@ namespace GhanaCustomsApi.Controllers
             var data =await _unitOfWork.VehicleTypes.GetVehicleTypes();
             return Ok(data);
         }
-       
-    
+
+
         [HttpGet]
         [Route("import-duty")]
         public async Task<IActionResult> GetById(int id,decimal assetValue)
         {
             var data =await _unitOfWork.VehicleTypes.GetVehicleType(id);
+
 
 
             decimal subTotal1 = 0;
@@ -54,10 +55,16 @@ namespace GhanaCustomsApi.Controllers
             result.InvoiceFooters.Add(new InvoiceFooter { Amount = assetValue, Rate = null, Descriptions = "SUB-TOTAL 1" });
 
 
-            foreach (var tax in taxSubSection1)
+            foreach(var tax in taxSubSection1)
             {
-                var footer = new InvoiceFooter {Amount = (tax.Value / 100) * assetValue, Rate = tax.Value,Descriptions = $"{tax.Taxation.Name} {tax.Value:N2}%"};
-                subTotal1 += footer.Amount;
+                var footer = new InvoiceFooter 
+                {
+                    Amount = (tax.Value / 100) * assetValue, 
+                    Rate = tax.Value,
+                    Descriptions = $"{tax.Taxation.Name} {tax.Value:N2}%"
+
+                };
+                    subTotal1 += footer.Amount;
                 result.InvoiceFooters.Add(footer);
             }
 

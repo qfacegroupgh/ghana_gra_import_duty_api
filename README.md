@@ -1,5 +1,5 @@
 # ghana_gra_import_duty_api
-Ghana Import Duty calculation using asp.net web API with.NET CORE 
+Ghana Import Duty calculation system using asp.net web API with.NET CORE 
 
 
 

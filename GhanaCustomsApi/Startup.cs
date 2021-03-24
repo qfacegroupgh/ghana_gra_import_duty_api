@@ -1,3 +1,4 @@
+using AutoWrapper;
 using GhanaCustomsApi.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -50,7 +51,6 @@ namespace GhanaCustomsApi
             }
 
             app.UseHttpsRedirection();
-
             app.UseApiResponseAndExceptionWrapper<MapResponseObject>();
             app.UseRouting();
 

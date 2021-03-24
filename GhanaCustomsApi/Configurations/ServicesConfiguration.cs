@@ -2,6 +2,7 @@
 using GhanaCustomsSystem.Domain;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace GhanaCustomsApi.Configurations
 {
@@ -18,10 +19,15 @@ namespace GhanaCustomsApi.Configurations
 
         public static IServiceCollection AddMiddleware(this IServiceCollection services)
         {
+
+
+
+
+
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling =
-                        Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+                        ReferenceLoopHandling.Ignore);
 
 
             return services;

@@ -49,6 +49,8 @@ namespace GhanaCustomsApi.Controllers
         {
             var data =await _unitOfWork.VehicleTypes.GetVehicleType(id);
 
+            if (data == null) return NotFound("Vehicle type not found");
+
             var result = CalculateImportDuty(assetValue, data);
 
             return Ok(result);

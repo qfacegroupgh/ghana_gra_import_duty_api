@@ -1,6 +1,6 @@
 using AutoWrapper;
 
-namespace GhanaCustomsApi
+namespace GhanaCustomsApi.Extensions
 {
     public class MapResponseObject
     {

@@ -52,7 +52,6 @@ namespace GhanaCustomsApi.Controllers
             if (data == null) return NotFound("Vehicle type not found");
 
             var result = CalculateImportDuty(assetValue, data);
-
             return Ok(result);
         }
 

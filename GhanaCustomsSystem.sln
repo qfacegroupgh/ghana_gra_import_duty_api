@@ -17,6 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GhanaCustomsSystem.UnitTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GhanaCustomsSystem.IntegrationTest", "GhanaCustomsSystem.IntegrationTest\GhanaCustomsSystem.IntegrationTest.csproj", "{2901CD9F-52CE-44CC-9C0C-D7E2293A8A26}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseScript", "DatabaseScript", "{625A75BB-BC72-4884-98B2-90DB2AA5A94E}"
+	ProjectSection(SolutionItems) = preProject
+		create_db_and_load_init_data.sql = create_db_and_load_init_data.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

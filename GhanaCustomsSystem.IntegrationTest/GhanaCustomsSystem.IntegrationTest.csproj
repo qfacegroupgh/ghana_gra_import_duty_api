@@ -10,11 +10,14 @@
 		<PackageReference Include="Alba.AspNetCore2" Version="1.4.3" />
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="5.0.4" />
 		<PackageReference Include="Microsoft.AspNetCore.ResponseCaching" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.TestHost" Version="5.0.4" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Respawn" Version="4.0.0" />
 		<PackageReference Include="xunit" Version="2.4.1" />
 		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
 			<PrivateAssets>all</PrivateAssets>
@@ -24,6 +27,12 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\GhanaCustomsApi\GhanaCustomsApi.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="integrationsettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>

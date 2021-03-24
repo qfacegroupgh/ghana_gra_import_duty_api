@@ -80,7 +80,8 @@ namespace GhanaCustomsApi.Controllers
                 {
                     Amount = (tax.Value / 100) * assetValue,
                     Rate = tax.Value,
-                    Descriptions = $"{tax.Taxation.Name} {tax.Value:N2}%"
+                    Descriptions = $"{tax.Taxation.Name} {tax.Value:N2}%",
+                    TaxationId=tax.TaxationId
                 };
                 subTotal1 += footer.Amount;
                 result.InvoiceFooters.Add(footer);
@@ -94,7 +95,9 @@ namespace GhanaCustomsApi.Controllers
                 var footer = new InvoiceFooter
                 {
                     Amount = (tax.Value / 100) * runTotal, Rate = tax.Value,
-                    Descriptions = $"{tax.Taxation.Name} {tax.Value:N2}%"
+                    Descriptions = $"{tax.Taxation.Name} {tax.Value:N2}%",
+                    TaxationId = tax.TaxationId
+
                 };
                 subTotal3 += footer.Amount;
                 result.InvoiceFooters.Add(footer);

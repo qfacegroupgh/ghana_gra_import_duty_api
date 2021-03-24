@@ -51,6 +51,7 @@ namespace GhanaCustomsApi
 
             app.UseHttpsRedirection();
 
+            app.UseApiResponseAndExceptionWrapper<MapResponseObject>();
             app.UseRouting();
 
             app.UseAuthorization();

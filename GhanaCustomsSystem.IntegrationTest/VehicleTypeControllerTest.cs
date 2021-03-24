@@ -1,9 +1,6 @@
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Runtime.Serialization.Json;
-using System.Text;
 using System.Threading.Tasks;
 using GhanaCustomsSystem.Domain.ViewModels;
 using GhanaCustomsSystem.IntegrationTest.Fixtures;
@@ -49,9 +46,6 @@ namespace GhanaCustomsSystem.IntegrationTest
             var response = await Client.SendAsync(request);
 
 
-           var responseData = JsonConvert.DeserializeObject<InvoiceViewModel>(await response.Content.ReadAsStringAsync());
-
-
             // Assert
             response.EnsureSuccessStatusCode();
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
@@ -69,9 +63,9 @@ namespace GhanaCustomsSystem.IntegrationTest
             var response = await Client.SendAsync(request);
 
 
-           var responseData = JsonConvert.DeserializeObject<InvoiceViewModel>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<ResponseWrapper<InvoiceViewModel>>(await response.Content.ReadAsStringAsync());
 
-           var importDutyIsZero = responseData.InvoiceFooters.First(a => a.TaxationId == 1000).Amount == 0;
+            var importDutyIsZero = responseData.Data.InvoiceFooters.First(a => a.TaxationId == 1000).Amount == 0;
 
            // Assert
            response.EnsureSuccessStatusCode();
